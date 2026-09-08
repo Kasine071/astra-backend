@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ASTRA Dashboard"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Service:"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvServiceState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INACTIVE" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Backend:"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvBackendState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DISCONNECTED" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Risk:"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvRiskState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAFE" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Risk Code:"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvRiskCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Confidence:"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvConfidence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0%" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Evidence:"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvEvidenceState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IDLE" />
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/tvLastUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Last update: N/A"
+        android:textSize="12sp"
+        android:gravity="end"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btnStartProtection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start ASTRA Protection" />
+
+    <Button
+        android:id="@+id/btnStopProtection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stop ASTRA Protection"
+        android:enabled="false" />
+
+    <Button
+        android:id="@+id/btnSimulateDaytime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Simulate Daytime Commute"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btnSimulateCritical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Simulate Critical Midnight Halt"
+        android:backgroundTint="#D32F2F"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btnViewEvidence"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Captured Evidence"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

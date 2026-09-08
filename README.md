@@ -238,3 +238,47 @@ astra-backend/
 ├── .gitignore                     # Git ignore rules
 └── README.md                      # Documentation & integration contracts
 ```
+
+---
+
+## 📱 Android Client — Darshan R
+
+### Project Location
+The Android client implementation is located in the `android/` directory at the root of the repository.
+
+### Getting Started
+
+1. **Open in Android Studio:**
+   Launch Android Studio, click **Open**, and select the `astra-backend/android/` directory (not the `astra-backend` root). Let Gradle sync and build the project.
+
+2. **Network Configuration (`BACKEND_HOST`):**
+   - By default, the app targets the Android Emulator loopback `10.0.2.2`. 
+   - **For Physical Devices:** Modify the `BACKEND_HOST` constant in `MainActivity.kt` and `SafetyForegroundService.kt` to match your local network IP (e.g., `192.168.1.42`) where the FastAPI server is running.
+   - Note: The app uses `android:usesCleartextTraffic="true"` for local HTTP testing. Use HTTPS for production.
+
+3. **Backend Startup (Kasine):**
+   ```bash
+   cd astra-backend
+   python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+   ```
+
+### Review 1 Demonstration Procedure
+
+1. **Deploy:** Install the app on an Android device or emulator.
+2. **Permissions:** Tap **Start ASTRA Protection**. You will be prompted for Location and Microphone permissions. Grant them.
+3. **Start Protection:** Tap **Start ASTRA Protection** again. A persistent foreground notification will appear, and the service will begin sending dummy telemetry every 8 seconds.
+4. **Daytime Commute Simulation:** 
+   - Tap **Simulate Daytime Commute**.
+   - The UI will display **SAFE** (Risk Code 0) with a high confidence. Evidence remains **IDLE**.
+5. **Critical Midnight Halt Simulation:**
+   - Tap **Simulate Critical Midnight Halt**.
+   - The UI will display **CRITICAL** (Risk Code 2) and `trigger_evidence_capture = true`.
+   - The Evidence status will change to **RECORDING**.
+   - Wait 10 seconds; the status will update to **SAVED**.
+6. **Verify Evidence:**
+   - Tap **View Captured Evidence** to see a list of saved `.mp4` recordings.
+   - You can also verify the file via Android Studio's **Device File Explorer** under `data/data/com.astra.safety/files/`.
+
+### Troubleshooting
+- **Network Errors / DISCONNECTED:** Check if the FastAPI server is running. Ensure the `BACKEND_HOST` IP is reachable from the Android device. Check Logcat under the `ASTRA_NETWORK` tag for HTTP details.
+- **Recording Fails:** Ensure Microphone permission is granted in Android Settings. Check Logcat under the `ASTRA_EVIDENCE` tag.
